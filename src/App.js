@@ -10,7 +10,7 @@ import Header from "./components/Header";
 
 function App() {
   return (
-    <>
+    <div>
       <Router>
         <Header/>
         <Routes>
@@ -22,7 +22,7 @@ function App() {
           <Route path="/offers" element = {<Offers/>} />
         </Routes>
       </Router>
-    </>
+    </div>
   );
 }
 

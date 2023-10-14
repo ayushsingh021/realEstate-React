@@ -9,7 +9,8 @@ export default function Header() {
    
     <div className='fixed top-0 left-0 h-screen w-16 m-0
                     flex flex-col
-                    bg-gray-900 text-white shadow-lg'> 
+                    bg-gray-900 text-white shadow-lg z-50
+                   '> 
                   
            
              
