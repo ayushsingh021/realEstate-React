@@ -2,7 +2,13 @@ import React ,{useState} from 'react'
 import { MdVisibilityOff ,MdVisibility } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import Oauth from '../components/Oauth';
-import videoFile from '../assets/videobrand.mp4'
+import videoFile from '../assets/videobrand.mp4';
+import {getAuth, createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
+
+import {db} from "../firebase";
+import { doc, serverTimestamp, setDoc } from 'firebase/firestore';
+import { useNavigate } from 'react-router-dom';
+import {toast} from 'react-toastify';
 
 export default function SignUp() {
   //hook for show password
@@ -17,12 +23,45 @@ export default function SignUp() {
   })
 
   const {name, email , password} = formData; //initalize lall 
+  const navigate = useNavigate();
 
   function onChange(e){
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id] : e.target.value,
     }))
+  }
+  
+  //form data to firebase on submit
+  async function onSubmit(e){
+    e.preventDefault(); // stops refresh of page when onSubmit is clicked
+    try {
+      // Initialize Firebase Authentication and get a reference to the service
+      const auth = getAuth();
+      //the method return promise we need to use await
+     const userCredential = await  createUserWithEmailAndPassword(
+          auth,
+          email,
+          password);
+          updateProfile(auth.currentUser,{
+            displayName :name
+          })
+          const user  = userCredential.user;
+          const formDataCopy = {...formData}; //copying the data of formData object
+          delete formDataCopy.password; //password remove
+          formDataCopy.timeStamp = serverTimestamp(); // timestamp of login save kia in fomDAtaCopy
+
+          await setDoc(doc(db , "users" , user.uid) ,formDataCopy);
+
+          //useNavigate for next page navigation
+          navigate("/");
+
+
+      
+    } catch (error) {
+      console.log(error);
+      toast.error('Uhh! something went wrong')
+    }
   }
   return (
     //section instead of div for better optimization
@@ -38,7 +77,7 @@ export default function SignUp() {
         </div>
         <div className='w-full md:w-[67%] lg:w-[40%] lg:ml-20'>
           {/* form creation */}
-          <form >
+          <form  onSubmit={onSubmit}>
           <input className='mb-6 w-full px-4 py-2 text-xl
             text-gray-700 bh-white border-gray-300 rounded transition ease-in-out' type="text" id = "name"
              value={name} 
