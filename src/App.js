@@ -12,9 +12,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div>
+    <div className="flex flex-row justify-between">
       <Router>
-        <Header />
+        <div className="ml-20"><Header /></div>
+        <div className="flex h-screen left-22 )">
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
@@ -23,6 +25,8 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/offers" element={<Offers />} />
         </Routes>
+        </div>
+        
       </Router>
       <ToastContainer
         position="top-right"
