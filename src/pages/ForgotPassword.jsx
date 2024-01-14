@@ -18,7 +18,7 @@ export default function ForgotPassword() {
   }
 
   async function onSubmit(e){
-    e.preventDefault();
+    e.preventDefault();//stops refreshing of pages
     try {
       const auth = getAuth();
     await sendPasswordResetEmail(auth, email);

@@ -43,9 +43,11 @@ export default function SignUp() {
           auth,
           email,
           password);
+
           updateProfile(auth.currentUser,{
             displayName :name
           })
+          
           const user  = userCredential.user;
           const formDataCopy = {...formData}; //copying the data of formData object
           delete formDataCopy.password; //password remove
