@@ -5,6 +5,8 @@ import {useState , React} from 'react'
 import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { db } from '../firebase';
+import { BiHomeHeart } from "react-icons/bi";
+import { Link } from 'react-router-dom';
 
 export default function Profile() {
   const auth = getAuth();
@@ -94,6 +96,14 @@ export default function Profile() {
             </p>
           </div>
         </form>
+        <button type='submit'
+        className='w-full text-white uppercase text-sm font-medium bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 active : bg-blue-800'>
+          <Link to = "/create-listing" 
+          className='flex justify-center items-center'>
+          <BiHomeHeart className='mr-2 text-3xl rounded-full p-1 border-2'/>
+          Sell or Rent Your Home
+          </Link>
+        </button>
       </div>
     </section>
     </>

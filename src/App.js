@@ -10,10 +10,12 @@ import Header from "./components/Header";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "../src/components/PrivateRoute";
+import CreateListing from "./pages/CreateListing";
 
 function App() {
   return (
-    <div className="flex flex-row justify-between">
+    <div className="flex flex-row justify-center">
+      
       <Router>
         <div className="ml-20"><Header /></div>
         <div className="flex h-screen left-22 )">
@@ -29,6 +31,8 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/offers" element={<Offers />} />
+          <Route path="/create-listing" element={<CreateListing />} />
+
         </Routes>
         </div>
         
