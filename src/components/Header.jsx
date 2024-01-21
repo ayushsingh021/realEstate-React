@@ -3,6 +3,7 @@ import {MdHome,MdPercent, MdPermIdentity} from "react-icons/md";
 import { ReactComponent as Logo } from '../assets/logobrand.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
 import {getAuth,onAuthStateChanged} from "firebase/auth";
+import '../styles/style.css';
 export default function Header() {
     const [pageState ,setPageSate] = useState("Sign-In");
     const auth = getAuth();
@@ -18,22 +19,19 @@ export default function Header() {
   
   
   return (
-   
-    <div className='fixed top-0 left-0 h-screen w-16 m-0
-                    flex flex-col
-                    bg-gray-900 text-white shadow-lg z-50
-                   '> 
-                  
-           
-             
-      {/* Logo is an actual React component */}
-      <Logo className='sidebar-icon' />
+
+<div class="sidebar close">
+
+<ul class="nav-links">
+<Logo className='sidebar-icon' />
     
-        <HeaderIcon pathWay = {"/"} way={"/"} icon={<MdHome size="28" />} text='Home'/>
-        <HeaderIcon pathWay={"/offers"}  way={"/offers"} icon={<MdPercent size="28" />}text='Offers'/>
-        <HeaderIcon pathWay={"/profile"} way={"/sign-in" || "/profile"} icon={<MdPermIdentity size="28"/>} text={pageState}/>
-    
-    </div>
+    <HeaderIcon pathWay = {"/"} way={"/"} icon={<MdHome size="28" />} text='Home'/>
+    <HeaderIcon pathWay={"/offers"}  way={"/offers"} icon={<MdPercent size="28" />}text='Offers'/>
+    <HeaderIcon pathWay={"/profile"} way={"/sign-in" || "/profile"} icon={<MdPermIdentity size="28"/>} text={pageState}/>
+
+</ul>
+</div>
+
   )
 };
 
@@ -49,11 +47,16 @@ function HeaderIcon({ icon , text = 'tooltip' ,way ,pathWay}) {
 
     return (
         <div onClick={()=>navigate(pathWay)} className = {`sidebar-icon group ${pathMatchRoute(way) && "bg-green-600 text-white"}`}>
+        <li>
             {icon}
-            <span class = "sidebar-tooltip group-hover:scale-100">
-                {text}
-            </span>
+            <ul className="sub-menu blank">
+                <li>{text}</li>
+            </ul>
+        </li>
+
         </div>
+
+       
 
     );
 }

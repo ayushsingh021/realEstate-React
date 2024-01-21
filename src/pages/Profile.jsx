@@ -54,6 +54,7 @@ export default function Profile() {
   const {name , email} = formData
   return (
     <>
+    <div className='flex '>
     <section className='flex flex-col px-6 py-12 max-w-6xl mx-auto'>
       <h1 className='text-3xl text-center
       mt-6 font-bold'>
@@ -106,6 +107,9 @@ export default function Profile() {
         </button>
       </div>
     </section>
+
+    </div>
+   
     </>
   )
 }

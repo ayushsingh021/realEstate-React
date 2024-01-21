@@ -17,7 +17,29 @@ export default function CreateListing() {
     })
 
     const {type,name,bedrooms, bathrooms ,parking, furnished , address,description,offer,regularPrice,discountedPrice} = formData;
-    function onChange(){}
+    
+    function onChange(e){
+     
+        let boolean = null;
+        if(e.target.value === "true"){
+            boolean = true;
+        }
+        if(e.target.value === "false"){
+            boolean = false;
+        }
+        //files
+        if(e.target.files){setFormData((prevState) =>({
+            ...prevState,
+            images : e.target.files
+        }))}
+        //text/boolean/number
+        if(!e.target.files){setFormData((prevState) =>({
+            ...prevState,
+            [e.target.id] : boolean ?? e.target.value, //if boolean null then five e.target.value else store boolean's value
+        }))}
+
+
+    }
   return (
     <main className='w-screen max-w-md px-2 mx-auto'>
         <h1 className='text-3xl text-center mt-6 font-bold'
@@ -35,7 +57,7 @@ export default function CreateListing() {
                 >
                     Sell
                 </button>
-                <button type='button' id='type' value="sell"
+                <button type='button' id='type' value="rent"
                 onClick={onChange}
                 className={`ml-3 px-7 py-3 font-medium text-sm uppercase
                 shadow-md rounded hover: shadow-lg focus:shadow-lg active: shadow-lg
@@ -91,7 +113,7 @@ export default function CreateListing() {
 
              <p className='text-lg font-semibold mt-6'>Parking Spot</p>
              <div className='flex'>
-                <button type='button' id='parking' value={false}
+                <button type='button' id='parking' value={true}
                 onClick={onChange}
                 className={`mr-3 px-7 py-3 font-medium text-sm uppercase
                 shadow-md rounded hover: shadow-lg focus:shadow-lg active: shadow-lg
@@ -115,7 +137,7 @@ export default function CreateListing() {
              </div>
              <p className='text-lg font-semibold mt-6'>Furnished</p>
              <div className='flex'>
-                <button type='button' id='furnished' value={false}
+                <button type='button' id='furnished' value={true}
                 onClick={onChange}
                 className={`mr-3 px-7 py-3 font-medium text-sm uppercase
                 shadow-md rounded hover: shadow-lg focus:shadow-lg active: shadow-lg
@@ -166,12 +188,12 @@ export default function CreateListing() {
 
             <p className='text-lg font-semibold '>Offer</p>
              <div className='flex mb-6'>
-                <button type='button' id='offer' value={false}
+                <button type='button' id='offer' value={true}
                 onClick={onChange}
                 className={`mr-3 px-7 py-3 font-medium text-sm uppercase
                 shadow-md rounded hover: shadow-lg focus:shadow-lg active: shadow-lg
                 transition duration-150 ease-in-out w-full ${
-                    offer ? "bg-neutral-50  text-black": "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600"
+                    !offer ? "bg-neutral-50  text-black": "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600"
                 }`}
                 >
                     Yes
@@ -181,7 +203,7 @@ export default function CreateListing() {
                 className={`ml-3 px-7 py-3 font-medium text-sm uppercase
                 shadow-md rounded hover: shadow-lg focus:shadow-lg active: shadow-lg
                 transition duration-150 ease-in-out w-full ${
-                    !offer ? "bg-neutral-50  text-black": "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600"
+                    offer ? "bg-neutral-50  text-black": "text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600"
                 }`}
                 >
                     No

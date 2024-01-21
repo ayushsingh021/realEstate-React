@@ -11,14 +11,20 @@ import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "../src/components/PrivateRoute";
 import CreateListing from "./pages/CreateListing";
+import './styles/style.css';
+
+
 
 function App() {
+
   return (
-    <div className="flex flex-row justify-center">
-      
-      <Router>
-        <div className="ml-20"><Header /></div>
-        <div className="flex h-screen left-22 )">
+   
+<section class="home-section">
+
+
+     <Router>
+        <Header />
+        
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -34,8 +40,6 @@ function App() {
           <Route path="/create-listing" element={<CreateListing />} />
 
         </Routes>
-        </div>
-        
       </Router>
       <ToastContainer
         position="top-right"
@@ -49,7 +53,9 @@ function App() {
         pauseOnHover
         theme="dark"
       />
-    </div>
+
+
+</section>
   );
 }
 
