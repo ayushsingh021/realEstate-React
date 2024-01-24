@@ -19,7 +19,7 @@ function App() {
 
   return (
    
-<section class="home-section">
+<section className="home-section">
 
 
      <Router>
