@@ -142,7 +142,8 @@ export default function CreateListing() {
             ...formData,
             imgUrls,
             geolocation,
-            timestamp : serverTimestamp()
+            timestamp : serverTimestamp(),
+            userRef : auth.currentUser.uid, //who created the listing is stored
         }
         //these variables are used as a placeholder in frontend not send 
         //to backend we send differnt values to backend thats why deleting
@@ -409,7 +410,7 @@ export default function CreateListing() {
                 <p className='text-md text-gray-600'>The first image will be cover(max. 6)</p>
                 <input type="file" 
                  id="images"
-                 accept='.jpg, .png, .jpeg'
+                 accept=".jpg, .png, .jpeg"
                  multiple
                  required
                  onChange={onChange} 
