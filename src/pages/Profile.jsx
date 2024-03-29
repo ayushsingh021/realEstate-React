@@ -9,6 +9,7 @@ import { BiHomeHeart } from "react-icons/bi";
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import ListingItem from '../components/ListingItem';
+import { deleteDoc } from 'firebase/firestore';
 
 export default function Profile() {
   const auth = getAuth();
@@ -83,6 +84,22 @@ export default function Profile() {
   if(loading){
     return <Loader/>
 }
+
+async function onDelete(listingID) {
+  if (window.confirm("Are you sure you want to delete?")) {
+    await deleteDoc(doc(db, "listings", listingID));
+    const updatedListings = listings.filter(
+      (listing) => listing.id !== listingID
+    );
+    setListings(updatedListings);
+    toast.success("Successfully deleted the listing");
+  }
+}
+function onEdit(listingID) {
+  navigate(`/edit-listing/${listingID}`);
+}
+
+console.log(listings);
   return (
     <>
     <div className='flex '>
@@ -146,13 +163,15 @@ export default function Profile() {
         <>
         <h2 className='text-2xl text-center font-semibold'>My Listings
         </h2>
-        <ul>
+        <ul className='sm:grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 '>
           {
             listings.map((listing) => (
               <ListingItem
                 key={listing.id}
                 id={listing.id}
                 listing = {listing.data}
+                onDelete={() => onDelete(listing.id)}
+                onEdit={() => onEdit(listing.id)}
               />
             ))
           }
