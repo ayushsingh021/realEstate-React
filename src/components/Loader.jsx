@@ -1,5 +1,5 @@
 import React from 'react'
-import loader from '../assets/svg/loader.svg'
+import loader from '../assets/svg/loader2.svg'
 export default function Loader() {
   return (
     <div className="bg-gray-500 bg-opacity-50 flex items-center justify-center fixed
