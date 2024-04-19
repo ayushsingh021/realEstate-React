@@ -20,9 +20,9 @@ export default function Header() {
   
   return (
 
-<div class="sidebar close">
+<div className="sidebar close">
 
-<ul class="nav-links">
+<ul className="nav-links">
 <Logo className='sidebar-icon' />
     
     <HeaderIcon pathWay = {"/"} way={"/"} icon={<MdHome size="28" />} text='Home'/>
