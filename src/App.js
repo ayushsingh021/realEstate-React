@@ -13,6 +13,7 @@ import PrivateRoute from "../src/components/PrivateRoute";
 import CreateListing from "./pages/CreateListing";
 import './styles/style.css';
 import EditListing from "./pages/EditListing";
+import IndividualListing from "./pages/IndividualListing";
 
 
 
@@ -38,7 +39,10 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/offers" element={<Offers />} />
-
+          <Route
+            path="/category/:categoryName/:listingID"
+            element={<IndividualListing />}
+          />
           <Route path="create-listing"element={<PrivateRoute/>}>
             {/* using Outlet for private routing by calling child route if loggedin true*/}
             <Route path="/create-listing" element={<CreateListing />} />
