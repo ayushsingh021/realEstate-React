@@ -80,11 +80,12 @@ export default function SignIn() {
               onClick={()=>setShowPassword
               ((prevState) => !prevState)} />)}
              </div>
-             <div className='flex
+             <div className='flex lg:flex-row 
+             flex-col 
              justify-between
              whitespace-nowrap text-sm
              sm:text-lg'>
-              <p className='mb-6'>
+              <p className='lg:mb-6 mb-2'>
                 Don't have an account?
                 <Link to="/sign-up"
                 className='text-red-600

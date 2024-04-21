@@ -16,8 +16,10 @@
   z-index: 100;
   transition: all 0.5s ease;
 }
+
+
 .sidebar.close{
-  width: 78px;
+  width: 75px;
 }
 .sidebar .logo-details{
   height: 60px;
@@ -242,9 +244,27 @@
   font-size: 26px;
   font-weight: 600;
 }
+
 @media (max-width: 420px) {
   .sidebar.close .nav-links li .sub-menu{
     display: none;
   }
 }
+
+/* @media(max-width: 420px){
+  .sidebar{
+    display: none;
+   
+  }
+  .home-section{
+    position: relative;
+   
+    height: 100vh;
+  
+  
+    left: 5px;
+    width: calc(100% - 10px);
+    transition: all 0.5s ease;
+  }
+} */
 

@@ -18,7 +18,7 @@ export default function Header() {
   }, [auth]);
 
   return (
-    <div className="sidebar close">
+    <div className="sidebar close ">
       <ul className="nav-links">
         {/* <Logo className="sidebar-icon" /> */}
         <HeaderIcon

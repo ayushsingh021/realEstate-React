@@ -53,11 +53,12 @@ export default function ForgotPassword() {
              />
 
             
-             <div className='flex
+             <div className='flex lg:flex-row
+             flex-col
              justify-between
              whitespace-nowrap text-sm
              sm:text-lg'>
-              <p className='mb-6'>
+              <p className='lg:mb-6 mb-1'>
                 Don't have an account?
                 <Link to="/sign-up"
                 className='text-red-600

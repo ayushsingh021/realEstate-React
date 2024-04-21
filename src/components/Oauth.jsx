@@ -44,7 +44,7 @@ export default function Oauth() {
       onClick={onGoogleClick} className='flex items-center 
       justify-center w-full
       bg-red-700 text-white
-      px-7 py-3 uppercase
+      lg:px-7 lg:py-3 py-2.5 uppercase
       hover:bg-red-800 
       active:bg-red-900
       hover:shadow-lg

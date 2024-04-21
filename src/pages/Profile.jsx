@@ -108,8 +108,8 @@ export default function Profile() {
   // console.log(listings);
   return (
     <>
-      <div className="flex ">
-        <section className="flex flex-col px-6 py-12 max-w-6xl mx-auto">
+      {/* <div className="flex  "> */}
+        <section className="flex lg:w-1/3 flex-col px-6 py-12 max-w-6xl mx-auto">
           <h1
             className="text-3xl text-center
       mt-6 font-bold"
@@ -143,7 +143,7 @@ export default function Profile() {
           rounded transition ease-in-out"
               />
 
-              <div className="flex justify-between whitespace-nowrap text-sm sm:text-lg mb-6">
+              <div className="lg:flex justify-between whitespace-nowrap text-sm sm:text-lg mb-6">
                 <p className="flex items-center">
                   Do you want to change your name?
                   <span
@@ -167,21 +167,22 @@ export default function Profile() {
                 </p>
               </div>
             </form>
+            
             <button
               type="submit"
-              className="w-full text-white uppercase text-sm font-medium bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 active : bg-blue-800"
+              className="w-full text-white uppercase  font-medium bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-2 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 rounded-lg lg:text-sm text-xs px-5 py-2.5 text-center me-2 mb-2 active : bg-blue-800"
             >
               <Link
                 to="/create-listing"
                 className="flex justify-center items-center"
               >
-                <BiHomeHeart className="mr-2 text-3xl rounded-full p-1 border-2" />
+                <BiHomeHeart className="mr-2 lg:text-3xl text-xl rounded-full p-1 border-2" />
                 Sell or Rent Your Home
               </Link>
             </button>
           </div>
         </section>
-      </div>
+      {/* </div> */}
       <div>
         {!loading && listings.length > 0 && (
           <>
