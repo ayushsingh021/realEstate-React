@@ -105,7 +105,7 @@ export default function Profile() {
     navigate(`/edit-listing/${listingID}`);
   }
 
-  console.log(listings);
+  // console.log(listings);
   return (
     <>
       <div className="flex ">
