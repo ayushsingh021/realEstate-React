@@ -41,6 +41,7 @@ function IndividualListing() {
     async function fetchListing() {
       const docRef = doc(db, "listings", params.listingID);
       const docSnap = await getDoc(docRef);
+      // console.log(docSnap.data())
       if (docSnap.exists()) {
         setListing(docSnap.data());
         setLoading(false);
@@ -49,7 +50,7 @@ function IndividualListing() {
     fetchListing();
   }, [params.listingID]);
 
-  // console.log(listing)
+  console.log(listing)
   if (loading) {
     return <Loader />;
   }
