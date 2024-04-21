@@ -15,7 +15,7 @@ export default function Oauth() {
       const provider  = new GoogleAuthProvider();
       const result = await signInWithPopup(auth , provider);
       const user  = result.user;
-      console.log(user);
+      // console.log(user);
       //cheak if user already existed or not
       const docRef = doc(db , "users" , user.uid);
       const docSnap = await getDoc(docRef);
