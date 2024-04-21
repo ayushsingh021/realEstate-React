@@ -28,7 +28,7 @@ export default function ListingItem({ listing, id ,  onEdit, onDelete }) {
           </div>
           <p className="font-semibold m-0 text-xl truncate">{listing.name}</p>
           <p className="text-[#457b9d] mt-2 font-semibold">
-            $
+          ₹
             {listing.offer
               ? listing.discountedPrice
                   .toString()
