@@ -400,6 +400,7 @@ export default function EditListing() {
                          ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600"
                 max="90"
                 min="-90"
+                step="0.0000001" // Adjust the step size according to your requirements
               />
             </div>
             <div className="">
@@ -416,6 +417,7 @@ export default function EditListing() {
                          ease-in-out focus:text-gray-700 focus:bg-white focus:border-slate-600"
                 max="180"
                 min="-180"
+                step="0.0000001" // Adjust the step size according to your requirements
               />
             </div>
           </div>
