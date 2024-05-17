@@ -42,11 +42,11 @@ export default function Header() {
          {/* <h6 className="text-white text-xs mt-3 uppercase items-center text-center">
             Everything Real
         </h6> */}
-        <h1 className="text-green-600 uppercase lg:text-6xl text-5xl rotate-[-90deg] absolute lg:bottom-[20%] lg:left-[-130%] bottom-[15%] left-[-100%]">
+        <h1 className="text-green-600 uppercase lg:text-4xl text-5xl rotate-[-90deg] absolute lg:bottom-[20%] lg:left-[-60%] bottom-[15%] left-[-100%]">
             Zeroiota
         </h1>
        
-        <h1 className="text-gray-500 uppercase lg:text-6xl text-5xl rotate-[-90deg] absolute lg:top-[40%] lg:left-[-124%]  top-[45%] left-[-95%]">
+        <h1 className="text-gray-500 uppercase lg:text-4xl text-5xl rotate-[-90deg] absolute lg:top-[52%] lg:left-[-55%]  top-[45%] left-[-95%]">
             Housing
         </h1>
       </ul>
